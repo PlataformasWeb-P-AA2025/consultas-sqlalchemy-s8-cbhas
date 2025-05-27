@@ -6,13 +6,13 @@ from sqlalchemy import func
 Session = sessionmaker(bind=engine)
 session = Session()
 
+
 departamentos = (
     session.query(Departamento)
-    .join(Departamento.cursos)   # Une departamentos con cursos porque un departamento tiene varios cursos
-    .join(Curso.tareas)           # Une cursos con tareas porque un curso tiene varias tareas de un departamento
-    .join(Tarea.entregas)         # Une tareas con entregas porque una tarea tiene varias entregas 
-    .filter(Entrega.calificacion <= 0.3) # Filtra las entregas con calificación menor o igual a 0.3
-    .all()
+    .join(Curso) # Une con la tabla Curso a través de la relación de Departamento
+    .join(Tarea) # Une con la tabla Tarea por la relación de Curso
+    .join(Entrega) # Une con la tabla Entrega por la relación de Tarea
+    .filter(Entrega.calificacion <= 0.3).all() # Filtra entregas con calificación menor o igual a 0.3
 )
 
 # Imprime el nombre del departamento y el número de cursos asociados
