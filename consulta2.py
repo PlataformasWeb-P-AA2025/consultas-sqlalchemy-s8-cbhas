@@ -8,9 +8,9 @@ session = Session()
 
 departamentos = (
     session.query(Departamento)
-    .join(Departamento.cursos)
-    .join(Curso.tareas)
-    .join(Tarea.entregas)
+    .join(Departamento.cursos)   # Une departamentos con cursos
+    .join(Curso.tareas)           # Une cursos con tareas
+    .join(Tarea.entregas)         # Une tareas con entregas
     .filter(Entrega.calificacion <= 0.3)
     .all()
 )
