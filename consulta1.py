@@ -1,7 +1,7 @@
 from sqlalchemy.orm import sessionmaker
 from clases import Entrega, Curso, Departamento, Tarea
-
 from clases import engine
+
 Session = sessionmaker(bind=engine)
 session = Session()
 
