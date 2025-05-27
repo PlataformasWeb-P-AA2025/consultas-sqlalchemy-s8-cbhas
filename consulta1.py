@@ -16,7 +16,7 @@ entregas = (
     .all()
 )
 
-for entrega in entregas:
-    print(f"Tarea: {entrega.tarea.titulo} | Estudiante: {entrega.estudiante.nombre} | "
-          f"Calificación: {entrega.calificacion} | Instructor: {entrega.tarea.curso.instructor.nombre} | "
-          f"Departamento: {entrega.tarea.curso.departamento.nombre}")
+for e in entregas:
+    print(f"Tarea: {e.tarea.titulo} | Estudiante: {e.estudiante.nombre} | "
+          f"Calificación: {e.calificacion} | Instructor: {e.tarea.curso.instructor.nombre} | "
+          f"Departamento: {e.tarea.curso.departamento.nombre}")
