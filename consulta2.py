@@ -12,8 +12,8 @@ departamentos = (
     .join(Curso) # Une con la tabla Curso a través de la relación de Departamento
     .join(Tarea) # Une con la tabla Tarea por la relación de Curso
     .join(Entrega) # Une con la tabla Entrega por la relación de Tarea
-    .filter(Entrega.calificacion <= 0.3)
-    .all() # Filtra entregas con calificación menor o igual a 0.3
+    .filter(Entrega.calificacion <= 0.3) # Filtra entregas con calificación menor o igual a 0.3
+    .all() 
 )
 
 # Imprime el nombre del departamento y el número de cursos asociados
